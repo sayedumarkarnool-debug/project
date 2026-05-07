@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start a Wiki – Fandom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<header class="global-nav" id="global-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo"><svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg></a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-signin" id="signInBtn">Sign In</a>
+      <button class="btn-register" onclick="window.location='register.html'" id="registerBtn">Register</button>
+      <div class="user-logged-in hidden" id="userLoggedIn">
+        <div class="user-avatar-wrap" id="userAvatarWrap">
+          <div class="user-avatar" id="userAvatar">U</div>
+          <div class="user-dropdown-menu"><a href="profile.html">My Profile</a><a href="#" id="logoutBtn">Sign Out</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="create-wiki-page">
+  <div class="create-wiki-layout">
+    <div class="create-wiki-header">
+      <div style="font-size:48px;margin-bottom:12px">🌟</div>
+      <h1>Start Your Wiki</h1>
+      <p>Create a community for your passion. It's free and takes just minutes.</p>
+    </div>
+
+    <div class="create-wiki-card">
+      <!-- STEP INDICATOR -->
+      <div class="step-indicator" id="stepIndicator">
+        <div class="step active" id="step1"><div class="step-dot">1</div><span class="step-label">Basics</span></div>
+        <div class="step" id="step2"><div class="step-dot">2</div><span class="step-label">Details</span></div>
+        <div class="step" id="step3"><div class="step-dot">3</div><span class="step-label">Done</span></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div id="stepContent1">
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:20px">Name your wiki</h2>
+        <div class="form-group">
+          <label class="form-label">Wiki Name *</label>
+          <input type="text" class="form-input" id="wikiName" placeholder="e.g. My Awesome Show Wiki" maxlength="60" />
+          <div style="font-size:11px;color:var(--color-text-dim);margin-top:4px">URL preview: fandom.com/wiki/<span id="wikiSlugPreview" style="color:var(--color-primary)">my-awesome-show-wiki</span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category *</label>
+          <select class="form-select" id="wikiCategory">
+            <option value="">Select a category</option>
+            <option value="games">🎮 Games</option>
+            <option value="movies">🎬 Movies</option>
+            <option value="tv">📺 TV</option>
+            <option value="anime">⛩️ Anime</option>
+            <option value="books">📚 Books</option>
+            <option value="comics">💥 Comics</option>
+            <option value="other">🌐 Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Language</label>
+          <select class="form-select" id="wikiLanguage">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="pt">Portuguese</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width:100%;padding:12px;font-size:15px" onclick="goToStep(2)">Continue →</button>
+      </div>
+
+      <!-- STEP 2 -->
+      <div id="stepContent2" style="display:none">
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:20px">Describe your wiki</h2>
+        <div class="form-group">
+          <label class="form-label">Description *</label>
+          <textarea class="form-textarea" id="wikiDescription" placeholder="What is your wiki about? Who is it for?" rows="4" maxlength="500"></textarea>
+          <div style="font-size:11px;color:var(--color-text-dim);margin-top:4px"><span id="descCount">0</span>/500</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Audience</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px" id="audienceChips">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 14px;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:13px;transition:all .2s" class="audience-chip">
+              <input type="checkbox" value="fans" style="accent-color:var(--color-primary)"> Fans
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 14px;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:13px;transition:all .2s" class="audience-chip">
+              <input type="checkbox" value="newcomers" style="accent-color:var(--color-primary)"> Newcomers
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 14px;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:13px;transition:all .2s" class="audience-chip">
+              <input type="checkbox" value="veterans" style="accent-color:var(--color-primary)"> Veterans
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:6px 14px;border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:13px;transition:all .2s" class="audience-chip">
+              <input type="checkbox" value="competitive" style="accent-color:var(--color-primary)"> Competitive
+            </label>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn-secondary" style="flex:1;padding:12px" onclick="goToStep(1)">← Back</button>
+          <button class="btn-primary" style="flex:2;padding:12px;font-size:15px" onclick="createWiki()">Create Wiki 🚀</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div id="stepContent3" style="display:none;text-align:center">
+        <div style="font-size:64px;margin-bottom:20px;animation:fadeInUp .5s ease">🎉</div>
+        <h2 style="font-size:24px;font-weight:900;margin-bottom:8px">Your Wiki is Created!</h2>
+        <p style="color:var(--color-text-muted);margin-bottom:8px">Congratulations! <strong id="successWikiName"></strong> is now live on Fandom.</p>
+        <p style="font-size:13px;color:var(--color-text-dim);margin-bottom:28px">Start adding pages, invite contributors, and build your community!</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="explore.html" class="btn-primary" style="width:100%;padding:12px;text-align:center;justify-content:center">Explore Other Wikis</a>
+          <a href="index.html" class="btn-secondary" style="width:100%;padding:12px;text-align:center;justify-content:center">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="text-align:center;padding:20px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg)">
+        <div style="font-size:32px;margin-bottom:8px">🆓</div>
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:4px">Completely Free</h4>
+        <p style="font-size:12px;color:var(--color-text-muted)">No cost to create or maintain your wiki</p>
+      </div>
+      <div style="text-align:center;padding:20px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg)">
+        <div style="font-size:32px;margin-bottom:8px">🌍</div>
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:4px">Global Audience</h4>
+        <p style="font-size:12px;color:var(--color-text-muted)">Reach 300M+ monthly Fandom visitors</p>
+      </div>
+      <div style="text-align:center;padding:20px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg)">
+        <div style="font-size:32px;margin-bottom:8px">🛠️</div>
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:4px">Easy Tools</h4>
+        <p style="font-size:12px;color:var(--color-text-muted)">Powerful wiki editor built for fans</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/data.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
+<script>
+function goToStep(n) {
+  if (n === 2) {
+    const name = document.getElementById('wikiName').value.trim();
+    const cat = document.getElementById('wikiCategory').value;
+    if (!name) { showToast('Please enter a wiki name', 'error'); return; }
+    if (!cat) { showToast('Please select a category', 'error'); return; }
+  }
+  [1,2,3].forEach(i => {
+    document.getElementById('stepContent'+i).style.display = i===n ? 'block' : 'none';
+    const stepEl = document.getElementById('step'+i);
+    stepEl.classList.remove('active','done');
+    if (i < n) stepEl.classList.add('done');
+    if (i === n) stepEl.classList.add('active');
+  });
+}
+
+document.getElementById('wikiName').addEventListener('input', (e) => {
+  const slug = e.target.value.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+  document.getElementById('wikiSlugPreview').textContent = slug || 'my-wiki';
+});
+
+document.getElementById('wikiDescription').addEventListener('input', (e) => {
+  document.getElementById('descCount').textContent = e.target.value.length;
+});
+
+function createWiki() {
+  const desc = document.getElementById('wikiDescription').value.trim();
+  if (!desc) { showToast('Please add a description', 'error'); return; }
+  if (!Auth.isLoggedIn()) { showToast('Please sign in to create a wiki', 'info'); setTimeout(()=>window.location.href='login.html',1200); return; }
+
+  const btn = event.target;
+  btn.textContent = 'Creating...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    const name = document.getElementById('wikiName').value.trim();
+    document.getElementById('successWikiName').textContent = name;
+    goToStep(3);
+    showToast(name + ' created successfully! 🎉', 'success');
+  }, 1500);
+}
+</script>
+</body>
+</html>

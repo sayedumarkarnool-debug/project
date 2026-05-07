@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Fandom – The World's Largest Fan Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<header class="global-nav" id="global-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="hamburger-btn" id="hamburgerBtn"><span></span><span></span><span></span></button>
+      <a href="index.html" class="nav-logo"><svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="explore.html" class="nav-link">Explore</a>
+        <a href="category.html?cat=games" class="nav-link">Games</a>
+        <a href="category.html?cat=movies" class="nav-link">Movies</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-signin" id="signInBtn">Sign In</a>
+      <button class="btn-register" onclick="window.location='register.html'" id="registerBtn">Register</button>
+      <div class="user-logged-in hidden" id="userLoggedIn">
+        <div class="user-avatar-wrap" id="userAvatarWrap">
+          <div class="user-avatar" id="userAvatar">U</div>
+          <div class="user-dropdown-menu"><a href="profile.html">My Profile</a><a href="#" id="logoutBtn">Sign Out</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu"><a href="explore.html">Explore</a><a href="login.html">Sign In</a></div>
+</header>
+
+<div class="about-page">
+  <!-- HERO -->
+  <div class="about-hero">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:4px 16px;background:rgba(0,214,214,.12);border:1px solid rgba(0,214,214,.25);border-radius:9999px;font-size:12px;font-weight:700;color:var(--color-primary);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px">
+      Our Story
+    </div>
+    <h1>Where Fans Come First</h1>
+    <p>Fandom is the world's largest fan community platform — a place where passion, knowledge, and community unite across every corner of pop culture.</p>
+    <div style="display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap">
+      <div style="text-align:center"><div style="font-size:36px;font-weight:900;color:var(--color-primary)">250K+</div><div style="font-size:13px;color:var(--color-text-muted);margin-top:4px">Fan Wikis</div></div>
+      <div style="text-align:center"><div style="font-size:36px;font-weight:900;color:var(--color-primary)">300M+</div><div style="font-size:13px;color:var(--color-text-muted);margin-top:4px">Monthly Visitors</div></div>
+      <div style="text-align:center"><div style="font-size:36px;font-weight:900;color:var(--color-primary)">50M+</div><div style="font-size:13px;color:var(--color-text-muted);margin-top:4px">Wiki Pages</div></div>
+      <div style="text-align:center"><div style="font-size:36px;font-weight:900;color:var(--color-primary)">45+</div><div style="font-size:13px;color:var(--color-text-muted);margin-top:4px">Languages</div></div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <!-- MISSION -->
+    <div class="about-grid">
+      <div class="about-text">
+        <div style="font-size:12px;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Our Mission</div>
+        <h2>Celebrating Every Fandom, Everywhere</h2>
+        <p>Founded in 2004 by Jimmy Wales and Angela Beesley, Fandom began as Wikia — a free wiki hosting service. Today it's the definitive destination for fan-created knowledge, bringing together millions of passionate enthusiasts across games, movies, TV, anime, books, and beyond.</p>
+        <p style="margin-top:12px">We believe every story deserves to be documented, every character deserves a page, and every fan community deserves a home.</p>
+      </div>
+      <div class="about-visual-box">🌍</div>
+    </div>
+
+    <!-- COMMUNITY -->
+    <div class="about-grid reverse">
+      <div class="about-text">
+        <div style="font-size:12px;font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Community</div>
+        <h2>Built by Fans, for Fans</h2>
+        <p>Every article, every edit, and every wiki on Fandom is created and maintained by volunteer contributors — fans just like you. Our community of editors spans the globe, working together to create the most comprehensive entertainment knowledge base ever assembled.</p>
+        <p style="margin-top:12px">Whether you're a casual reader or a dedicated editor, there's a place for you at Fandom.</p>
+        <a href="register.html" class="btn-primary" style="display:inline-flex;margin-top:20px">Join the Community</a>
+      </div>
+      <div class="about-visual-box">🤝</div>
+    </div>
+
+    <!-- VALUES -->
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 style="font-size:28px;font-weight:900;margin-bottom:8px">Our Values</h2>
+      <p style="color:var(--color-text-muted)">The principles that guide everything we do</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px">
+      <div style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);text-align:center">
+        <div style="font-size:36px;margin-bottom:12px">❤️</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Fan-First</h3>
+        <p style="font-size:13px;color:var(--color-text-muted)">We put fans and their communities at the center of every decision we make.</p>
+      </div>
+      <div style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);text-align:center">
+        <div style="font-size:36px;margin-bottom:12px">🔓</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Open Knowledge</h3>
+        <p style="font-size:13px;color:var(--color-text-muted)">We believe information about entertainment should be free and accessible to everyone.</p>
+      </div>
+      <div style="padding:28px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);text-align:center">
+        <div style="font-size:36px;margin-bottom:12px">🌈</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Inclusive Community</h3>
+        <p style="font-size:13px;color:var(--color-text-muted)">Every fan is welcome here, regardless of background, experience, or how deep their fandom goes.</p>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div style="text-align:center;margin-bottom:32px">
+      <h2 style="font-size:28px;font-weight:900;margin-bottom:8px">Meet the Team</h2>
+      <p style="color:var(--color-text-muted)">The people behind the platform</p>
+    </div>
+    <div class="about-team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(0,214,214,.2);color:var(--color-primary)">JW</div>
+        <h4>Jimmy Wales</h4><p>Co-Founder & Board Member</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(139,92,246,.2);color:#a78bfa">PD</div>
+        <h4>Perkins Doherty</h4><p>Chief Executive Officer</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(255,107,53,.2);color:#ff9a72">SM</div>
+        <h4>Sarah Mitchell</h4><p>Chief Technology Officer</p>
+      </div>
+    </div>
+
+    <!-- CAREERS CTA -->
+    <div style="text-align:center;margin-top:64px;padding:48px;background:linear-gradient(135deg,rgba(0,214,214,.08),rgba(139,92,246,.08));border:1px solid rgba(0,214,214,.2);border-radius:var(--radius-xl)">
+      <h2 style="font-size:28px;font-weight:900;margin-bottom:12px">Join Our Team</h2>
+      <p style="color:var(--color-text-muted);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto">We're always looking for passionate people who love fan communities to help us build the future of Fandom.</p>
+      <a href="#" class="btn-primary btn-large" onclick="showToast('Careers page coming soon!','info');return false">View Open Positions</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg><p>The world's largest fan community platform.</p></div>
+    <div class="footer-links-grid">
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="explore.html">All Wikis</a></li><li><a href="category.html?cat=games">Games</a></li><li><a href="category.html?cat=movies">Movies</a></li></ul></div>
+      <div class="footer-col"><h4>Community</h4><ul><li><a href="create-wiki.html">Start a Wiki</a></li><li><a href="register.html">Join Fandom</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Fandom Clone. Educational use only.</p></div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="js/data.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
+</body>
+</html>

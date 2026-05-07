@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Wikis – Fandom</title>
+  <meta name="description" content="Explore thousands of fan wikis on Fandom – games, movies, TV, anime, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="global-nav" id="global-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <button class="hamburger-btn" id="hamburgerBtn"><span></span><span></span><span></span></button>
+        <a href="index.html" class="nav-logo">
+          <svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="explore.html" class="nav-link active">Explore</a>
+          <a href="category.html?cat=games" class="nav-link">Games</a>
+          <a href="category.html?cat=movies" class="nav-link">Movies</a>
+          <a href="category.html?cat=tv" class="nav-link">TV</a>
+          <a href="category.html?cat=anime" class="nav-link">Anime</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <div class="search-container" id="searchContainer">
+          <button class="search-icon-btn" id="searchToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+          <div class="search-expand" id="searchExpand">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search Fandom..." />
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+        <div class="nav-user-area">
+          <a href="login.html" class="btn-signin" id="signInBtn">Sign In</a>
+          <button class="btn-register" onclick="window.location='register.html'" id="registerBtn">Register</button>
+        </div>
+        <div class="user-logged-in hidden" id="userLoggedIn">
+          <div class="user-avatar-wrap" id="userAvatarWrap">
+            <div class="user-avatar" id="userAvatar">U</div>
+            <div class="user-dropdown-menu" id="userDropdownMenu">
+              <a href="profile.html">My Profile</a>
+              <a href="#">My Wikis</a>
+              <a href="#">Settings</a>
+              <a href="#" id="logoutBtn">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="explore.html">Explore</a>
+      <a href="category.html?cat=games">Games</a>
+      <a href="category.html?cat=movies">Movies</a>
+      <a href="category.html?cat=tv">TV</a>
+      <a href="category.html?cat=anime">Anime</a>
+      <hr /><a href="login.html">Sign In</a><a href="register.html">Register</a>
+    </div>
+  </header>
+
+  <div class="explore-page">
+    <!-- HERO -->
+    <div class="explore-hero">
+      <h1>Explore Fan Wikis</h1>
+      <p>Discover communities for your favorite games, movies, TV shows, and more.</p>
+      <div class="explore-search-bar">
+        <input type="text" id="exploreSearch" placeholder="Search wikis, games, shows..." />
+        <button id="exploreSearchBtn">Search</button>
+      </div>
+      <div class="explore-filters">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="games">🎮 Games</button>
+        <button class="filter-chip" data-filter="movies">🎬 Movies</button>
+        <button class="filter-chip" data-filter="tv">📺 TV</button>
+        <button class="filter-chip" data-filter="anime">⛩️ Anime</button>
+        <button class="filter-chip" data-filter="books">📚 Books</button>
+        <button class="filter-chip" data-filter="comics">💥 Comics</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="explore-wikis-section container">
+      <div class="section-header" style="margin-bottom:24px">
+        <h2 class="section-title" id="exploreResultsTitle">All Wikis</h2>
+        <p style="color:var(--color-text-muted);font-size:13px" id="resultsCount"></p>
+      </div>
+      <div class="explore-wikis-grid" id="exploreWikisGrid">
+        <!-- populated by JS -->
+      </div>
+      <div id="noResults" style="display:none;text-align:center;padding:60px 0;color:var(--color-text-muted)">
+        <div style="font-size:48px;margin-bottom:16px">🔍</div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px">No wikis found</h3>
+        <p>Try a different search term or category.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg>
+        <p>The world's largest fan community platform.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.629L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links-grid">
+        <div class="footer-col"><h4>Explore</h4><ul><li><a href="explore.html">All Wikis</a></li><li><a href="category.html?cat=games">Games</a></li><li><a href="category.html?cat=movies">Movies</a></li><li><a href="category.html?cat=tv">TV</a></li></ul></div>
+        <div class="footer-col"><h4>Community</h4><ul><li><a href="create-wiki.html">Start a Wiki</a></li><li><a href="register.html">Join Fandom</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Careers</a></li></ul></div>
+        <div class="footer-col"><h4>Policies</h4><ul><li><a href="#">Terms of Use</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Fandom Clone. All rights reserved.</p></div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    function renderExploreWikis() {
+      const grid = document.getElementById('exploreWikisGrid');
+      const noResults = document.getElementById('noResults');
+      const title = document.getElementById('exploreResultsTitle');
+      const count = document.getElementById('resultsCount');
+
+      let wikis = FandomDB.filterByCategory(activeFilter);
+
+      if (searchQuery) {
+        wikis = wikis.filter(w =>
+          w.title.toLowerCase().includes(searchQuery) ||
+          w.description.toLowerCase().includes(searchQuery) ||
+          w.tags.some(t => t.toLowerCase().includes(searchQuery))
+        );
+      }
+
+      title.textContent = activeFilter === 'all' ? 'All Wikis' : capitalize(activeFilter) + ' Wikis';
+      count.textContent = `${wikis.length} wiki${wikis.length !== 1 ? 's' : ''} found`;
+
+      if (!wikis.length) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+      noResults.style.display = 'none';
+      grid.innerHTML = wikis.map(createWikiCard).join('');
+
+      grid.querySelectorAll('.wiki-card').forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 50);
+      });
+    }
+
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeFilter = chip.dataset.filter;
+        renderExploreWikis();
+      });
+    });
+
+    const exploreInput = document.getElementById('exploreSearch');
+    let searchTimer;
+    exploreInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        renderExploreWikis();
+      }, 250);
+    });
+
+    document.getElementById('exploreSearchBtn').addEventListener('click', () => {
+      searchQuery = exploreInput.value.trim().toLowerCase();
+      renderExploreWikis();
+    });
+
+    renderExploreWikis();
+  </script>
+</body>
+</html>

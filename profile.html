@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile – Fandom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" /><link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<header class="global-nav" id="global-nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo"><svg width="108" height="28" viewBox="0 0 108 28"><text x="0" y="22" font-family="Inter,sans-serif" font-size="24" font-weight="900" fill="#00D6D6" letter-spacing="-1">fandom</text></svg></a>
+      <nav class="nav-links"><a href="explore.html" class="nav-link">Explore</a><a href="category.html?cat=games" class="nav-link">Games</a></nav>
+    </div>
+    <div class="nav-right">
+      <div class="nav-user-area">
+        <a href="login.html" class="btn-signin" id="signInBtn">Sign In</a>
+        <button class="btn-register" onclick="window.location='register.html'" id="registerBtn">Register</button>
+      </div>
+      <div class="user-logged-in hidden" id="userLoggedIn">
+        <div class="user-avatar-wrap" id="userAvatarWrap">
+          <div class="user-avatar" id="userAvatar">U</div>
+          <div class="user-dropdown-menu"><a href="profile.html">My Profile</a><a href="#" id="logoutBtn">Sign Out</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="profile-page">
+  <div class="profile-layout">
+    <div id="notLoggedMsg" style="text-align:center;padding:80px 0;display:none">
+      <div style="font-size:64px;margin-bottom:16px">🔒</div>
+      <h2 style="font-size:24px;font-weight:800;margin-bottom:8px">Sign in to view your profile</h2>
+      <p style="color:var(--color-text-muted);margin-bottom:24px">You need to be logged in to access your profile page.</p>
+      <a href="login.html" class="btn-primary btn-large">Sign In</a>
+    </div>
+
+    <div id="profileContent">
+      <!-- HEADER CARD -->
+      <div class="profile-header-card">
+        <div class="profile-avatar-large" id="profileAvatarLarge">U</div>
+        <div style="flex:1">
+          <h1 style="font-size:24px;font-weight:900;margin-bottom:4px" id="profileUsername">Username</h1>
+          <p style="font-size:13px;color:var(--color-text-muted)" id="profileEmail">email@example.com</p>
+          <p style="font-size:12px;color:var(--color-text-dim);margin-top:4px" id="profileJoined">Joined January 2026</p>
+          <div class="profile-stats">
+            <div class="profile-stat"><div class="profile-stat-num" id="statEdits">0</div><div class="profile-stat-label">Edits</div></div>
+            <div class="profile-stat"><div class="profile-stat-num" id="statWikis">0</div><div class="profile-stat-label">Wikis</div></div>
+            <div class="profile-stat"><div class="profile-stat-num" id="statFollowing">0</div><div class="profile-stat-label">Following</div></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn-primary" onclick="showToast('Edit profile coming soon!','info')">Edit Profile</button>
+          <button class="btn-secondary" onclick="Auth.logout()">Sign Out</button>
+        </div>
+      </div>
+
+      <!-- PROFILE SECTIONS -->
+      <div class="profile-sections">
+        <div class="profile-section-card">
+          <h3>📚 My Wikis</h3>
+          <div id="myWikis">
+            <div style="text-align:center;padding:24px 0;color:var(--color-text-muted)">
+              <div style="font-size:32px;margin-bottom:8px">📭</div>
+              <p style="font-size:13px">You haven't followed any wikis yet.</p>
+              <a href="explore.html" class="btn-primary" style="display:inline-flex;margin-top:12px;font-size:13px;padding:7px 16px">Explore Wikis</a>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section-card">
+          <h3>✏️ Recent Activity</h3>
+          <div id="recentActivity">
+            <div style="text-align:center;padding:24px 0;color:var(--color-text-muted)">
+              <div style="font-size:32px;margin-bottom:8px">🕐</div>
+              <p style="font-size:13px">No activity yet. Start editing wikis!</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section-card">
+          <h3>🏆 Achievements</h3>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+            <div style="text-align:center;padding:12px;background:var(--color-surface-2);border-radius:var(--radius-md);opacity:.4" title="Make your first edit">
+              <div style="font-size:28px">✏️</div><div style="font-size:10px;margin-top:4px;color:var(--color-text-muted)">First Edit</div>
+            </div>
+            <div style="text-align:center;padding:12px;background:var(--color-surface-2);border-radius:var(--radius-md);opacity:.4" title="Follow 5 wikis">
+              <div style="font-size:28px">❤️</div><div style="font-size:10px;margin-top:4px;color:var(--color-text-muted)">Follower</div>
+            </div>
+            <div style="text-align:center;padding:12px;background:var(--color-surface-2);border-radius:var(--radius-md);opacity:.4" title="Create a wiki">
+              <div style="font-size:28px">🌟</div><div style="font-size:10px;margin-top:4px;color:var(--color-text-muted)">Creator</div>
+            </div>
+            <div style="text-align:center;padding:12px;background:rgba(0,214,214,.1);border:1px solid rgba(0,214,214,.2);border-radius:var(--radius-md)" title="Joined Fandom">
+              <div style="font-size:28px">🎉</div><div style="font-size:10px;margin-top:4px;color:var(--color-primary);font-weight:600">Joined!</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-section-card">
+          <h3>⚙️ Account Settings</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn-secondary" onclick="showToast('Email settings coming soon!','info')">📧 Change Email</button>
+            <button class="btn-secondary" onclick="showToast('Password change coming soon!','info')">🔑 Change Password</button>
+            <button class="btn-secondary" onclick="showToast('Notifications settings coming soon!','info')">🔔 Notifications</button>
+            <button style="padding:10px 24px;border-radius:var(--radius-full);border:1px solid #ff444444;background:rgba(255,68,68,.08);color:#ff4444;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s" onmouseover="this.style.background='rgba(255,68,68,.15)'" onmouseout="this.style.background='rgba(255,68,68,.08)'" onclick="if(confirm('Delete your account?'))showToast('Account deletion is disabled in this demo.','error')">🗑️ Delete Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="js/data.js"></script><script src="js/auth.js"></script><script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const user = Auth.getCurrentUser();
+  if (!user) {
+    document.getElementById('notLoggedMsg').style.display = 'block';
+    document.getElementById('profileContent').style.display = 'none';
+    return;
+  }
+  document.getElementById('profileContent').style.display = 'block';
+  document.getElementById('notLoggedMsg').style.display = 'none';
+  document.getElementById('profileAvatarLarge').textContent = user.username.charAt(0).toUpperCase();
+  document.getElementById('profileUsername').textContent = user.username;
+  document.getElementById('profileEmail').textContent = user.email;
+  document.getElementById('profileJoined').textContent = 'Joined ' + new Date(user.created).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  document.getElementById('statEdits').textContent = user.edits || 0;
+  document.getElementById('statWikis').textContent = (user.wikisJoined || []).length;
+  document.getElementById('statFollowing').textContent = user.following || 0;
+});
+</script>
+</body>
+</html>
